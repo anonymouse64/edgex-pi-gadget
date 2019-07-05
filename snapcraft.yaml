@@ -4,26 +4,38 @@ summary: Raspberry Pi gadget
 description: |
  Support files for booting Raspberry Pi.
  This gadget snap supports the Pi2, Pi3 and the Compute
- Module 3 devices universally.
 type: gadget
 base: core18
 architectures:
   - build-on: amd64
-    run-on: [arm64]
+    run-on: arm64
 confinement: strict
 grade: stable
 parts:
+  local-assets:
+    source: .
+    plugin: dump
+    organize:
+      psplash/psplash.patch: patches/psplash.patch
+      uboot.patch: patches/uboot.patch
+      uboot3.patch: patches/uboot3.patch
+    stage:
+      - patches/
+      - psplash/
+      - uboot.env.in
+    prime: [-*]
   uboot-pi3:
+    after: [local-assets]
     plugin: nil
     source: git://git.denx.de/u-boot.git
     source-tag: v2018.07-rc3
     override-build: |
-      git apply ../../../uboot3.patch
+      git apply $SNAPCRAFT_STAGE/patches/uboot3.patch
       make rpi_3_defconfig
       CROSS_COMPILE=aarch64-linux-gnu- make
       mkdir -p $SNAPCRAFT_PART_INSTALL/boot-assets
       cp u-boot.bin $SNAPCRAFT_PART_INSTALL/boot-assets/kernel8.img
-      tools/mkenvimage -r -s 131072 -o $SNAPCRAFT_PART_INSTALL/uboot.env ../../../uboot.env.in
+      tools/mkenvimage -r -s 131072 -o $SNAPCRAFT_PART_INSTALL/uboot.env $SNAPCRAFT_STAGE/uboot.env.in
       ln -s uboot.env $SNAPCRAFT_PART_INSTALL/uboot.conf
     build-packages:
       - bison
@@ -80,11 +92,12 @@ parts:
         - gcc-aarch64-linux-gnu:amd64
         - libc6-dev-arm64-cross:amd64
   psplash:
+    after: [local-assets]
     source: git://git.yoctoproject.org/psplash
     plugin: nil
     override-build: |
       set -x
-      export TREE="../../../psplash"
+      export TREE="$SNAPCRAFT_STAGE/psplash"
       . ${TREE}/config
       if ! $(echo "$FONT"|grep -q ^/); then
          FONT="${TREE}/${FONT}"
@@ -92,7 +105,7 @@ parts:
       if ! $(echo "$SPLASH"|grep -q ^/); then
          SPLASH="${TREE}/${SPLASH}"
       fi
-      git apply ${TREE}/psplash.patch
+      git apply $SNAPCRAFT_STAGE/patches/psplash.patch
       ${TREE}/font-gen.sh "$FONT"
       ./make-image-header.sh "$SPLASH" CORE psplash-core
       aclocal
@@ -100,7 +113,7 @@ parts:
       ./configure --build=x86_64-linux-gnu --host=aarch64-linux-gnu CC=/usr/bin/aarch64-linux-gnu-gcc || cat config.log
       CROSS_COMPILE=aarch64-linux-gnu- ARCH=arm64 make
       rm -rf $SNAPCRAFT_PART_INSTALL/usr
-      cp -a ../../../psplash/initrd .
+      cp -a "$TREE/initrd" .
       mkdir -p initrd/bin
       cp psplash initrd/bin
       mkdir -p $SNAPCRAFT_PART_INSTALL/boot-assets
