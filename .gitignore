@@ -1,4 +1,6 @@
 parts/
 prime/
 stage/
-pi2_*.snap
+*.snap
+squashfs-root/
+*.assert
