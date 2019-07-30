@@ -11,3 +11,75 @@ volumes:
         content:
           - source: boot-assets/
             target: /
+
+defaults:
+   AZGf0KNnh8aqdkbGATNuRuxnt1GNRKkV:
+      export-client: "on"
+      export-distro: "on"
+
+connections:
+  # snap connect edgex-device-grove:gpio edgex-pi:bcm-gpio-0
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-0
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-1
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-2
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-3
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-4
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-5
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-6
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-7
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-8
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-9
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-10
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-11
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-12
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-13
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-14
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-15
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-16
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-17
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-17
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-18
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-19
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-20
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-21
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-22
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-23
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-24
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-25
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-26
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:gpio
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:bcm-gpio-27
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:i2c
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:i2c-0
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:i2c
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:i2c-1
+  -  plug: avmcR95cwVbOMC4c2TzuvrUZ8vQhvXyj:i2c
+     slot: RyJgPajLF9Pz4ew95jX6ot4MnlTxdH8m:i2c-2

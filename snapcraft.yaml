@@ -1,9 +1,9 @@
-name: pi
+name: edgex-pi
 version: 18-1
-summary: Raspberry Pi gadget
+summary: Raspberry Pi gadget for EdgeX
 description: |
- Support files for booting Raspberry Pi.
- This gadget snap supports the Pi2, Pi3 and the Compute
+  Gadget snap for EdgeX Community Development Kit to support the Grove sensor
+  kit.
 type: gadget
 base: core18
 architectures:
